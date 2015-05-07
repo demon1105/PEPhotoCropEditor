@@ -94,35 +94,35 @@
     return nil;
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    
-    CGFloat width = CGRectGetWidth(self.bounds);
-    CGFloat height = CGRectGetHeight(self.bounds);
-    
-    for (NSInteger i = 0; i < 3; i++) {
-        CGFloat borderPadding = 2.0f;
-        
-        if (self.showsGridMinor) {
-            for (NSInteger j = 1; j < 3; j++) {
-                [[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:0.3f] set];
-                
-                UIRectFill(CGRectMake(roundf(width / 3 / 3 * j + width / 3 * i), borderPadding, 1.0f, roundf(height) - borderPadding * 2));
-                UIRectFill(CGRectMake(borderPadding, roundf(height / 3 / 3 * j + height / 3 * i), roundf(width) - borderPadding * 2, 1.0f));
-            }
-        }
-        
-        if (self.showsGridMajor) {
-            if (i > 0) {
-                [[UIColor whiteColor] set];
-                
-                UIRectFill(CGRectMake(roundf(width / 3 * i), borderPadding, 1.0f, roundf(height) - borderPadding * 2));
-                UIRectFill(CGRectMake(borderPadding, roundf(height / 3 * i), roundf(width) - borderPadding * 2, 1.0f));
-            }
-        }
-    }
-}
+//- (void)drawRect:(CGRect)rect
+//{
+//    [super drawRect:rect];
+//    
+//    CGFloat width = CGRectGetWidth(self.bounds);
+//    CGFloat height = CGRectGetHeight(self.bounds);
+//    
+//    for (NSInteger i = 0; i < 3; i++) {
+//        CGFloat borderPadding = 2.0f;
+//        
+//        if (self.showsGridMinor) {
+//            for (NSInteger j = 1; j < 3; j++) {
+//                [[UIColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:0.3f] set];
+//                
+//                UIRectFill(CGRectMake(roundf(width / 3 / 3 * j + width / 3 * i), borderPadding, 1.0f, roundf(height) - borderPadding * 2));
+//                UIRectFill(CGRectMake(borderPadding, roundf(height / 3 / 3 * j + height / 3 * i), roundf(width) - borderPadding * 2, 1.0f));
+//            }
+//        }
+//        
+//        if (self.showsGridMajor) {
+//            if (i > 0) {
+//                [[UIColor whiteColor] set];
+//                
+//                UIRectFill(CGRectMake(roundf(width / 3 * i), borderPadding, 1.0f, roundf(height) - borderPadding * 2));
+//                UIRectFill(CGRectMake(borderPadding, roundf(height / 3 * i), roundf(width) - borderPadding * 2, 1.0f));
+//            }
+//        }
+//    }
+//}
 
 - (void)layoutSubviews
 {
@@ -165,30 +165,30 @@
 
 #pragma mark -
 
-- (void)resizeControlViewDidBeginResizing:(PEResizeControl *)resizeControlView
-{
-    self.initialRect = self.frame;
-    
-    if ([self.delegate respondsToSelector:@selector(cropRectViewDidBeginEditing:)]) {
-        [self.delegate cropRectViewDidBeginEditing:self];
-    }
-}
-
-- (void)resizeControlViewDidResize:(PEResizeControl *)resizeControlView
-{
-    self.frame = [self cropRectMakeWithResizeControlView:resizeControlView];
-        
-    if ([self.delegate respondsToSelector:@selector(cropRectViewEditingChanged:)]) {
-        [self.delegate cropRectViewEditingChanged:self];
-    }
-}
-
-- (void)resizeControlViewDidEndResizing:(PEResizeControl *)resizeControlView
-{
-    if ([self.delegate respondsToSelector:@selector(cropRectViewDidEndEditing:)]) {
-        [self.delegate cropRectViewDidEndEditing:self];
-    }
-}
+//- (void)resizeControlViewDidBeginResizing:(PEResizeControl *)resizeControlView
+//{
+//    self.initialRect = self.frame;
+//    
+//    if ([self.delegate respondsToSelector:@selector(cropRectViewDidBeginEditing:)]) {
+//        [self.delegate cropRectViewDidBeginEditing:self];
+//    }
+//}
+//
+//- (void)resizeControlViewDidResize:(PEResizeControl *)resizeControlView
+//{
+//    self.frame = [self cropRectMakeWithResizeControlView:resizeControlView];
+//        
+//    if ([self.delegate respondsToSelector:@selector(cropRectViewEditingChanged:)]) {
+//        [self.delegate cropRectViewEditingChanged:self];
+//    }
+//}
+//
+//- (void)resizeControlViewDidEndResizing:(PEResizeControl *)resizeControlView
+//{
+//    if ([self.delegate respondsToSelector:@selector(cropRectViewDidEndEditing:)]) {
+//        [self.delegate cropRectViewDidEndEditing:self];
+//    }
+//}
 
 - (CGRect)cropRectMakeWithResizeControlView:(PEResizeControl *)resizeControlView
 {
