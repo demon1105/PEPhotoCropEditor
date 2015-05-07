@@ -29,7 +29,7 @@
 
 @property (nonatomic, readonly) CGRect zoomedCropRect;
 
-
+@property (nonatomic,assign) BOOL hideCancelButtonItem;
 - (void)resetCropRect;
 - (void)resetCropRectAnimated:(BOOL)animated;
 
